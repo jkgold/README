@@ -1,4 +1,16 @@
+
+# class ApplicationController < ActionController::Base
+#   protect_from_forgery with: :exception
+#   before_action :flash_attack
+
+#   protected
+#   def flash_attack
+#     flash[:notice] = "You have been flashed"
+#   end
+
+
 class PostsController < ApplicationController
+
   def index
   	@posts = Post.all
   end
@@ -15,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :body))
+    @post = current_user.posts.build(params.require(:post).permit(:title, :body))
     
     if @post.save
       flash[:notice] = "Post was saved"
