@@ -4,9 +4,9 @@ class Post < ActiveRecord::Base
 
 
 	default_scope { order('created_at DESC')}	
-	scope :ordered_by_title => Post.sort_by { |p| p.class == Array? p.first :p}
-	scope :ordered_by_reversere_created_at => Post.sort! |first, last| last <=> first end
- 		end
+	# scope :ordered_by_title => Post.sort_by { |p| p.class == Array? p.first :p}
+	# scope :ordered_by_reversere_created_at => Post.sort! |first, last| last <=> first end
+end
  	
 
 	

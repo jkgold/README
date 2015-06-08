@@ -1,15 +1,5 @@
-
-# class ApplicationController < ActionController::Base
-#   protect_from_forgery with: :exception
-#   before_action :flash_attack
-
-#   protected
-#   def flash_attack
-#     flash[:notice] = "You have been flashed"
-#   end
-
-
 class PostsController < ApplicationController
+
 
   def index
   	@posts = Post.all
@@ -23,6 +13,8 @@ class PostsController < ApplicationController
   end
 
   def new
+    # flash[:notice] = "Enter your post"
+    flash_attack
     @post = Post.new
   end
 
@@ -53,6 +45,13 @@ class PostsController < ApplicationController
         render :edit
       end
   end
+
+  protected
+
+  def flash_attack
+    flash[:notice] = "Enter your post"
+  end
+
 end
 
 
