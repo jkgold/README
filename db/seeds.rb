@@ -50,6 +50,7 @@ user.update_attributes!(
 )
 
 puts "Seed finished"
+puts "#{User.count} users created"
 puts "#{Post.count} post created"
 puts "#{Comment.count} comments created"
 
