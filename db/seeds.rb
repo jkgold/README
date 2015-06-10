@@ -46,8 +46,15 @@ user = User.first
 user.skip_reconfirmation!
 user.update_attributes!(
 	email:    'jkgoldjkgold@yahoo.com',
-	password: 'helloworld'
+	password: 'helloworld',
+	role: "admin"
 )
+
+u = User.create(
+	email: "Joe@example.com",
+	password: "theplumber")
+u.confirm!
+
 
 puts "Seed finished"
 puts "#{User.count} users created"

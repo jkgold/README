@@ -1,11 +1,17 @@
-
-
-
-
 class PostsController < ApplicationController
   skip_before_action :flash_attack, only: [:index, :new]
-  
-  
+
+
+  #  class Scope < Scope
+  #  def access 
+  #   if user.admin? || user.moderater?
+  #     scope.all
+  #   elsif user.member?
+  #     scope.where(:published=>true) 
+  #   else user.guest?
+  #     scope.none
+  #     end
+  # end
 
 
   def index
@@ -25,8 +31,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
-    @post = current_user.posts.build(params.require(:post).permit(:title, :body))
+    @post = current_user.posts.build(post_params)
     authorize @post
     if @post.save
       flash[:notice] = "Post was saved"
@@ -44,17 +49,23 @@ class PostsController < ApplicationController
 
 
   def update
-      @post = Post.find(params[:id])
-      authorize @post
-      if @post.update_attributes(params.require(:post).permit(:title, :body))
-        flash[:notice] = "Post was updated."
-        redirect_to @post
-      else
-        flash[:error] = "There was an error saving the post.  Please try again."
-        render :edit
-      end
+    @post = Post.find(params[:id])
+    authorize @post
+    if @post.update_attributes(params.require(:post).permit(:title, :body))
+      flash[:notice] = "Post was updated."
+      redirect_to @post
+    else
+      flash[:error] = "There was an error saving the post.  Please try again."
+      render :edit
     end
   end
+
+  protected
+
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
+end
 
 
 
