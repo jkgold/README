@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   
 
-  devise_for :users
+  get 'summary/new'
+
+ devise_for :users
  resources :topics do 
  	resources :post, except: [:index]
  end
@@ -13,6 +15,6 @@ Rails.application.routes.draw do
 get 'about' => 'welcome#about'
 
 
-root to: 'welcome#index'
+root to: 'topics#index'
 
 end

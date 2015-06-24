@@ -10,11 +10,12 @@
  	
 
 class Post < ActiveRecord::Base
-		attr_accessor(:ordered_by_title, :ordered_by_reverse_created_at, :has_many, :belongs_to )
+		attr_accessor(:ordered_by_title, :ordered_by_reverse_created_at, :has_many, :belongs_to, :has_one)
 	
   		has_many :comments
   		belongs_to :user
   		belongs_to :topic
+  		has_one :summary
  
   		default_scope { order("created_at DESC")}
   		scope :ordered_by_title, -> { where(title: true) }
