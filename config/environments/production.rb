@@ -76,7 +76,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  #http://bloccit.herokuapp.com
-   config.action_mailer.default_url_options = { host: 'bloccit.herokuapp.com' }
- end
-end
+  
+     # http://bloccit.herokuapp.com
+   config.action_mailer.default_url_options = { host: 'https://git.heroku.com/stark-temple-6847.git'}
+    end
+ 
+
+
+  
+
+
+
