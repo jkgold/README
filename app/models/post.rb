@@ -20,7 +20,14 @@ class Post < ActiveRecord::Base
   		default_scope { order("created_at DESC")}
   		scope :ordered_by_title, -> { where(title: true) }
   		scope :ordered_by_reverse_created_at, -> { order("reverse_created_at")}
-end
+
+  		validates :title, length: {minimum: 5 }, presence: true
+  		validates :body, length: { minimum: 20 }, presence: true
+  		validates :topic, presence: true 
+  		validates :user, presence: true
+
+  	end
+
 
 
 # a.sort_by { |f| f.class == Array ? f.first : f }
