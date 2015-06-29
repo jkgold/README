@@ -26,6 +26,13 @@ class Post < ActiveRecord::Base
   		validates :topic, presence: true 
   		validates :user, presence: true
 
+
+      def markdown_title
+        #stored in db as markdown
+        #We want to output it as rendered markdown (which means converted to HTML)
+        title #+ some code to render it as markdown
+      end
+
   	end
 
 

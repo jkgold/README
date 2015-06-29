@@ -50,19 +50,14 @@ class PostsController < ApplicationController
       render :edit
     end
   end
-end
 
-  protected
+  private 
 
   def post_params
     params.require(:post).permit(:title, :body)
   end
-end
 
-private 
-
-def post_params
-  params.require(:post).permit(:title, :body)
+  def render_as_markdown
+    markdown.require(:post).permit(:title, :body)
   end
-end
-
+end#class end
