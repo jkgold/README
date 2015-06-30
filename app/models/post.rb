@@ -16,6 +16,7 @@ class Post < ActiveRecord::Base
   		belongs_to :user
   		belongs_to :topic
   		has_one :summary
+      mount_uploader :image, ImageUploader
  
   		default_scope { order("created_at DESC")}
   		scope :ordered_by_title, -> { where(title: true) }

@@ -19,6 +19,13 @@
 						<%= post.user.name %><br>
 						<%= post.comments.count %> Comments
 					</small> 
+
+					<small>
+			             <%= image_tag(post.post.image.tiny.url) if post.post.image? %>
+			             submitted <%= time_ago_in_words(post.created_at) %> ago by
+			             <%= post.post.image %><br>
+			             <%= post.comments.count %> Comments
+           			</small>
 				</div>
 			</div>
 		<% end %>
