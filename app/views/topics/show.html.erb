@@ -18,17 +18,16 @@
 						submitted <%= time_ago_in_words(post.created_at) %> ago by
 						<%= post.user.name %><br>
 						<%= post.comments.count %> Comments
-					</small> 
-
-					<small>
-			             <%= image_tag(post.post.image.tiny.url) if post.post.image? %>
+					
+						<%= image_tag(post.image.tiny.url) if post.image? %>
 			             submitted <%= time_ago_in_words(post.created_at) %> ago by
-			             <%= post.post.image %><br>
+			             <%= post.image %><br>
 			             <%= post.comments.count %> Comments
-           			</small>
+           			 </small>
 				</div>
 			</div>
 		<% end %>
+		<%= will_paginate @posts %>
 	</div>
 	<div class="col-md-4">
 		<% if policy(Post.new).create? %>
