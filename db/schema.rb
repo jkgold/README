@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20150630230950) do
     t.integer  "user_id"
     t.integer  "topic_id"
     t.integer  "summary_id"
-    t.string   "avatar"
     t.string   "image"
   end
 

@@ -41,6 +41,10 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
+gem 'binding_of_caller'
+gem 'better_errors'
+#The gem transforms your in-browser error page, adding an explorable
+# stack trace and in-browser console with access to the variables where the error was thrown. 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

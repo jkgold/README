@@ -1,4 +1,11 @@
 require 'faker'
+
+
+User.delete_all
+Topic.delete_all
+Post.delete_all
+Comment.delete_all
+
 # Create Users
 5.times do 
 	user = User.new(
@@ -48,7 +55,7 @@ post =Post.all
 		body: Faker::Lorem.paragraph
 
 		)
-
+end
 
 
 
@@ -90,7 +97,7 @@ u.confirm!
 user = User.first
 user.skip_reconfirmation!
 user.update_attributes!(
-	email: 'youremail.com',
+	email: 'youremail@example.com',
 	password: 'helloworld'
 )
 
@@ -108,5 +115,4 @@ puts "#{Comment.count} comments created"
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-end
+#   Mayor.create(name: 'Emanuel', city: cities.firs
