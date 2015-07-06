@@ -18,7 +18,23 @@
 		<% if policy(@post).edit? %>
 			<%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
 		<% end %>
-	  </div>
-	 </div>
+	</div>
+</div>
+
+<div class="row">
+	Comments for this post will go here
+	<ul>
+	<% @post.comments.each do |comment| %>
+		<li><%= comment.body %></li>
+	<% end %>
+	</ul>
+</div>
+
+
+
+<div class="row">
+	Comment form will go here
+	<%= render "comments/form" %>
+</div>
 
 	

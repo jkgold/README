@@ -1,0 +1,16 @@
+<h1> @comment.body</h1>
+
+<!-- if a user is allowed to make a new comment? -->
+<% if policy(@comment).new? %> 
+	<%= link_to "New", post_comments_new(@topic, @post), class: 'btn btn-success' %>
+<% end %>
+
+<div class="row">
+<div class="col-md-8">
+	<p class="lead"><%= @comment.new %></p>
+	<% @comments.each do |comment| %>
+		<div class="media">
+			<h4 class="media-heading">
+				<%= link_to (post.comments.new), [@topic, @post] %>
+			</h4>
+	<% end %>
