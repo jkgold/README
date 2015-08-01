@@ -43,6 +43,7 @@ gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 gem 'binding_of_caller'
 gem 'better_errors'
+gem 'rspec'
 #The gem transforms your in-browser error page, adding an explorable
 # stack trace and in-browser console with access to the variables where the error was thrown. 
 # Use ActiveModel has_secure_password
