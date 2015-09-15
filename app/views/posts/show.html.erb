@@ -16,25 +16,29 @@
 	</div>
 	<div class="col-md-4">
 		<% if policy(@post).edit? %>
-			<%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
+		 <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
 		<% end %>
 	</div>
 </div>
 
 <div class="row">
-	Comments for this post will go here
+	Comments 
 	<ul>
 	<% @post.comments.each do |comment| %>
 		<li><%= comment.body %></li>
 	<% end %>
 	</ul>
 </div>
-
-
-
-<div class="row">
-	Comment form will go here
-	<%= render "comments/form" %>
+<div class= "col-4-md">
+	<% if policy(Comment.new).create? %>
+	<% link_to "New Comment", new_comment_post_path(@comment), class: 'btn btn-success' %>
+	<% end %>
 </div>
 
+
+
+
+
+
+	
 	

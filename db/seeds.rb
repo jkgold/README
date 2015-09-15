@@ -57,6 +57,7 @@ post =Post.all
 		)
 end
 
+comment = Comment.all
 
 
 
